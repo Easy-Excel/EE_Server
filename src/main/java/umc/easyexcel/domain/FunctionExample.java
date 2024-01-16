@@ -26,13 +26,13 @@ public class FunctionExample {
     private String answer;
 
     //양방향 매핑
-    @OneToMany(mappedBy = "function_example", cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "functionExample", cascade = CascadeType.ALL)
     private List<ExampleExplanation> exampleExplanationList = new ArrayList<>();
 
-    @OneToMany(mappedBy = "function_example", cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "functionExample", cascade = CascadeType.ALL)
     private List<ExampleImg> exampleImgList = new ArrayList<>();
 
-    @OneToMany(mappedBy = "function_example", cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "functionExample", cascade = CascadeType.ALL)
     private List<ExampleTip> exampleTipList = new ArrayList<>();
 
 }

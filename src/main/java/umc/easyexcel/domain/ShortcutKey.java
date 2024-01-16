@@ -25,10 +25,10 @@ public class ShortcutKey extends BaseEntity {
     private String category;
 
     //양방향 매핑
-    @OneToMany(mappedBy = "shortcut_key", cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "shortcutKey", cascade = CascadeType.ALL)
     private List<MacKey> macKeyList = new ArrayList<>();
 
-    @OneToMany(mappedBy = "shortcut_key", cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "shortcutKey", cascade = CascadeType.ALL)
     private List<WindowKey> windowKeys = new ArrayList<>();
 
 }
