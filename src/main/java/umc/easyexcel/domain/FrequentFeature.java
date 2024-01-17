@@ -27,5 +27,5 @@ public class FrequentFeature extends BaseEntity {
     private List<FeatureCharacteristic> featureCharacteristicList = new ArrayList<>();
 
     @OneToMany(mappedBy = "frequentFeature", cascade = CascadeType.ALL)
-    private List<FeatureFunction> featureFunctionList = new ArrayList<>();
+    private List<FeatureFunctions> featureFunctionsList = new ArrayList<>();
 }
