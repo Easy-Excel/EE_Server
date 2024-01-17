@@ -22,7 +22,8 @@ public class ShortcutKey extends BaseEntity {
 
     private String detailExplanation;
 
-    private String category;
+    @Enumerated(EnumType.STRING)
+    private ShortcutKeyCategory category;
 
     //양방향 매핑
     @OneToMany(mappedBy = "shortcutKey", cascade = CascadeType.ALL)
