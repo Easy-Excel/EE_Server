@@ -12,6 +12,7 @@ public class ValueDTO {
     @NoArgsConstructor
     @AllArgsConstructor
     public static class getValueDTO{
+        Integer order;
         String eng;
         String kor;
     }

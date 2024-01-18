@@ -8,7 +8,6 @@ import umc.easyexcel.apiPayload.exception.handler.FunctionsHandler;
 import umc.easyexcel.domain.Functions;
 import umc.easyexcel.domain.mapping.FunctionsValue;
 import umc.easyexcel.repository.FunctionsRepository;
-import umc.easyexcel.repository.FunctionsValueRepository;
 import umc.easyexcel.repository.ValueRepository;
 import umc.easyexcel.web.dto.FunctionsResponseDTO;
 import umc.easyexcel.web.dto.ValueDTO;
@@ -22,7 +21,6 @@ import java.util.stream.Collectors;
 public class FunctionsServiceImpl implements FunctionsService {
 
     private final FunctionsRepository functionsRepository;
-    private final FunctionsValueRepository functionsValueRepository;
     private final ValueRepository valueRepository;
 
     @Override
@@ -32,15 +30,23 @@ public class FunctionsServiceImpl implements FunctionsService {
                 .orElseThrow(() -> new FunctionsHandler(ErrorStatus.FUNCTION_NOT_FOUND));
 
         List<FunctionsValue> functionsValues = functions.getFunctionsValueList();
+
         List<ValueDTO.getValueDTO> engAndKorList = functionsValues.stream()
-                .flatMap(functionsValue -> valueRepository.findById(functionsValue.getId()).stream())
-                .map(value -> ValueDTO.getValueDTO.builder()
-                        .kor(value.getKor())
-                        .eng(value.getEng())
-                        .build())
+                .flatMap(functionsValue -> {
+                    // functionsValue에서 order 값을 가져와서 Stream을 생성
+                    int order = functionsValue.getOrders();
+
+                    return valueRepository.findById(functionsValue.getId()).stream()
+                            .map(value -> ValueDTO.getValueDTO.builder()
+                                    .order(order)
+                                    .kor(value.getKor())
+                                    .eng(value.getEng())
+                                    .build());
+                })
                 .collect(Collectors.toList());
 
         return FunctionsResponseDTO.GetFunctionsDTO.builder()
+                .id(functions.getId())
                 .name(functions.getName())
                 .explanation(functions.getExplanation())
                 .caution(functions.getCaution())

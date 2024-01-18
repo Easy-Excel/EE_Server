@@ -14,6 +14,7 @@ public class FunctionsResponseDTO {
     @NoArgsConstructor
     @AllArgsConstructor
     public static class GetFunctionsDTO{
+        Long id;
         String name;
         String explanation;
         String caution;
