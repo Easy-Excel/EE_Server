@@ -3,7 +3,7 @@ package umc.easyexcel.domain;
 import jakarta.persistence.*;
 import lombok.*;
 import umc.easyexcel.domain.common.BaseEntity;
-import umc.easyexcel.domain.mapping.FunctionValue;
+import umc.easyexcel.domain.mapping.FunctionsValue;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -13,7 +13,7 @@ import java.util.List;
 @Builder
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 @AllArgsConstructor
-public class Function extends BaseEntity {
+public class Functions extends BaseEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -28,9 +28,9 @@ public class Function extends BaseEntity {
     private String caution;
 
     //양방향 매핑
-    @OneToMany(mappedBy = "function", cascade = CascadeType.ALL)
-    private List<FunctionValue> functionValueList = new ArrayList<>();
+    @OneToMany(mappedBy = "functions", cascade = CascadeType.ALL)
+    private List<FunctionsValue> functionsValueList = new ArrayList<>();
 
-    @OneToMany(mappedBy = "function", cascade = CascadeType.ALL)
-    private List<FunctionExample> functionExampleList = new ArrayList<>();
+    @OneToMany(mappedBy = "functions", cascade = CascadeType.ALL)
+    private List<FunctionsExample> functionsExampleList = new ArrayList<>();
 }

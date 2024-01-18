@@ -15,8 +15,8 @@ public class ExampleTip {
     private Long id;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "function_example_id")
-    private FunctionExample functionExample;
+    @JoinColumn(name = "functions_example_id")
+    private FunctionsExample functionsExample;
 
     private String content;
 

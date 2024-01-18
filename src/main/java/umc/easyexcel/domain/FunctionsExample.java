@@ -11,7 +11,7 @@ import java.util.List;
 @Builder
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 @AllArgsConstructor
-public class FunctionExample {
+public class FunctionsExample {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -19,20 +19,20 @@ public class FunctionExample {
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "function_id")
-    private Function function;
+    private Functions functions;
 
     private String question;
 
     private String answer;
 
     //양방향 매핑
-    @OneToMany(mappedBy = "function_example", cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "functionsExample", cascade = CascadeType.ALL)
     private List<ExampleExplanation> exampleExplanationList = new ArrayList<>();
 
-    @OneToMany(mappedBy = "function_example", cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "functionsExample", cascade = CascadeType.ALL)
     private List<ExampleImg> exampleImgList = new ArrayList<>();
 
-    @OneToMany(mappedBy = "function_example", cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "functionsExample", cascade = CascadeType.ALL)
     private List<ExampleTip> exampleTipList = new ArrayList<>();
 
 }

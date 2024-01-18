@@ -8,7 +8,7 @@ import lombok.*;
 @Builder
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 @AllArgsConstructor
-public class FeatureFunction {
+public class FeatureFunctions {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -18,5 +18,5 @@ public class FeatureFunction {
     @JoinColumn(name = "frequent_feature_id")
     private FrequentFeature frequentFeature;
 
-    private String function;
+    private String functions;
 }
