@@ -5,6 +5,8 @@ import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
+import java.util.List;
+
 public class CategoryResponseDTO {
 
     @Builder
@@ -14,7 +16,16 @@ public class CategoryResponseDTO {
     public static class InquiryDTO {
         Long id;
         String name;
-        String category;
+    }
+
+    @Builder
+    @Getter
+    @NoArgsConstructor
+    @AllArgsConstructor
+    public static class InquiryListDTO{
+        List<InquiryDTO> inquiryList;
+        Integer listSize;
+        String categoryType;
     }
 
 }

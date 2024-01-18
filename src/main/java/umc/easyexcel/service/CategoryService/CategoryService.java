@@ -1,9 +1,8 @@
 package umc.easyexcel.service.CategoryService;
 
-import umc.easyexcel.web.dto.CategoryResponseDTO;
-
+import umc.easyexcel.domain.Functions;
 import java.util.List;
 
 public interface CategoryService {
-    List<CategoryResponseDTO.InquiryDTO> getFunctionsByCategory(String category);
+    List<Functions> getFunctionsByCategoryList(String category);
 }
