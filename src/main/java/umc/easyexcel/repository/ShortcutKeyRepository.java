@@ -2,6 +2,7 @@ package umc.easyexcel.repository;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import umc.easyexcel.domain.*;
+import umc.easyexcel.domain.enums.*;
 
 import java.util.*;
 
