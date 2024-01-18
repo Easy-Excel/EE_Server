@@ -18,8 +18,10 @@ public class FrequentFeature extends BaseEntity {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    @Column(nullable = false, columnDefinition = "VARCHAR(50)")
     private String name;
 
+    @Column(nullable = false, columnDefinition = "VARCHAR(255)")
     private String explanation;
 
     //양방향 매핑
