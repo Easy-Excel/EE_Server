@@ -35,4 +35,7 @@ public class Functions extends BaseEntity {
 
     @OneToMany(mappedBy = "functions", cascade = CascadeType.ALL)
     private List<FunctionsExample> functionsExampleList = new ArrayList<>();
+
+    @OneToMany(mappedBy = "functions", cascade = CascadeType.ALL)
+    private List<FunctionsCaution> functionsCautionList = new ArrayList<>();
 }

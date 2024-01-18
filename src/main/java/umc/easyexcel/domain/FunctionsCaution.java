@@ -14,7 +14,10 @@ public class FunctionsCaution {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "functions_id")
+    private Functions functions;
+
     @Column(nullable = false, columnDefinition = "VARCHAR(255)")
     private String caution;
-
 }
