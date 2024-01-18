@@ -5,8 +5,6 @@ import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
-import java.util.List;
-
 public class CategoryResponseDTO {
 
     @Builder
@@ -14,7 +12,9 @@ public class CategoryResponseDTO {
     @NoArgsConstructor
     @AllArgsConstructor
     public static class InquiryDTO {
-        List<String> functions;
+        Long id;
+        String name;
+        String category;
     }
 
 }

@@ -6,5 +6,5 @@ import umc.easyexcel.domain.Functions;
 import java.util.List;
 
 public interface CategoryRepository extends JpaRepository<Functions, Long> {
-    List<Functions> findByCategory(String category);
+    List<Functions> getFunctionsByCategory(String category);
 }
