@@ -78,6 +78,7 @@ archivvonjang님의 [블로그](https://velog.io/@archivvonjang/Git-Commit-Messa
     |Feature|새로운 기능을 추가|
     |Bug Fix|버그를 고쳐야하는 경우|
     |Refactoring|Production Code(실제 사용하는 코드) 리팩토링|
+    |Update|코드 혹은 파일을 업데이트하는 작업만 수행한 경우 (리펙토링을 제외한 모든 경우)|
     |Delete|코드 혹은 파일을 삭제하는 작업만 수행한 경우|
     <br/>
 
