@@ -17,7 +17,10 @@ public enum ErrorStatus implements BaseErrorCode {
     _FORBIDDEN(HttpStatus.FORBIDDEN, "COMMON403", "금지된 요청입니다."),
 
     // For test
-    TEMP_EXCEPTION(HttpStatus.BAD_REQUEST, "TEMP4001", "이거는 테스트");
+    TEMP_EXCEPTION(HttpStatus.BAD_REQUEST, "TEMP4001", "이거는 테스트"),
+
+    // Functions
+    FUNCTION_NOT_FOUND(HttpStatus.BAD_REQUEST, "FUNCTION4001", "존재하지 않는 함수입니다.");
 
     private final HttpStatus httpStatus;
     private final String code;
