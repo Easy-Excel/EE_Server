@@ -2,7 +2,6 @@ package umc.easyexcel.domain;
 
 import jakarta.persistence.*;
 import lombok.*;
-import umc.easyexcel.domain.mapping.FunctionsExample;
 
 @Entity
 @Getter
