@@ -17,7 +17,7 @@ public class FunctionsResponseDTO {
         Long id;
         String name;
         String explanation;
-        String caution;
+        List<String> caution;
         List<ValueDTO.getValueDTO> engAndKorList;
     }
 }

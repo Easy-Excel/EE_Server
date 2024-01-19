@@ -6,6 +6,7 @@ import org.springframework.transaction.annotation.Transactional;
 import umc.easyexcel.apiPayload.code.status.ErrorStatus;
 import umc.easyexcel.apiPayload.exception.handler.FunctionsHandler;
 import umc.easyexcel.domain.Functions;
+import umc.easyexcel.domain.FunctionsCaution;
 import umc.easyexcel.domain.mapping.FunctionsValue;
 import umc.easyexcel.repository.FunctionsRepository;
 import umc.easyexcel.repository.ValueRepository;
@@ -29,6 +30,10 @@ public class FunctionsServiceImpl implements FunctionsService {
         Functions functions = functionsRepository.findById(functionId)
                 .orElseThrow(() -> new FunctionsHandler(ErrorStatus.FUNCTION_NOT_FOUND));
 
+        List<String> functionsCautions = functions.getFunctionsCautionList().stream()
+                .map(FunctionsCaution::getCaution)
+                .toList();
+
         List<FunctionsValue> functionsValues = functions.getFunctionsValueList();
 
         List<ValueDTO.getValueDTO> engAndKorList = functionsValues.stream()
@@ -49,7 +54,7 @@ public class FunctionsServiceImpl implements FunctionsService {
                 .id(functions.getId())
                 .name(functions.getName())
                 .explanation(functions.getExplanation())
-                .caution(functions.getCaution())
+                .caution(functionsCautions)
                 .engAndKorList(engAndKorList)
                 .build();
     }
