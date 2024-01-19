@@ -3,6 +3,7 @@ package umc.easyexcel.domain;
 import jakarta.persistence.*;
 import lombok.*;
 import umc.easyexcel.domain.common.BaseEntity;
+import umc.easyexcel.domain.mapping.FunctionsExample;
 import umc.easyexcel.domain.mapping.FunctionsValue;
 
 import java.util.ArrayList;
