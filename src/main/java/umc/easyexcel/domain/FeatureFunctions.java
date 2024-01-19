@@ -21,4 +21,3 @@ public class FeatureFunctions {
     @Column(nullable = false, columnDefinition = "VARCHAR(50)")
     private String functions;
 }
-

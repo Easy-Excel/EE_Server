@@ -22,4 +22,3 @@ public class ExampleImg {
     @Column(nullable = false, columnDefinition = "TEXT")
     private String url;
 }
-
