@@ -20,7 +20,7 @@ public class CategoryRestController {
 
     private final CategoryService categoryService;
     @GetMapping("/category")
-    public ApiResponse<CategoryResponseDTO.InquiryListDTO> getFunctionsList(@RequestParam("type") String category) {
+    public ApiResponse<CategoryResponseDTO.InquiryListDTO> getFunctionsList(@RequestParam(name = "type", defaultValue = "날짜/시간") String category) {
         List<Functions> functionsByCategoryList = categoryService.getFunctionsByCategoryList(category);
         return ApiResponse.onSuccess(CategoryConverter.inquiryListDTO(functionsByCategoryList, category));
     }
