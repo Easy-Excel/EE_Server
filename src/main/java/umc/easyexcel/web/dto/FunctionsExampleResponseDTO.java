@@ -17,9 +17,9 @@ public class FunctionsExampleResponseDTO {
         Long id;
         String question;
         String answer;
-        List<ExampleExplanationDTO> explanationDTOList;
+        List<ExampleExplanationDTO> exampleExplanationDTOList;
         List<ExampleTipDTO> exampleTipDTOList;
-        List<ExampleImageDTO> exampleImageDTOList;
+        List<ExampleImgDTO> exampleImgDTOList;
     }
 
     @Builder
@@ -27,7 +27,7 @@ public class FunctionsExampleResponseDTO {
     @NoArgsConstructor
     @AllArgsConstructor
     public static class ExampleExplanationDTO {
-        Long id;
+        Long explanationId;
         String explanation;
     }
 
@@ -36,7 +36,7 @@ public class FunctionsExampleResponseDTO {
     @NoArgsConstructor
     @AllArgsConstructor
     public static class ExampleTipDTO {
-        Long id;
+        Long tipId;
         String content;
     }
 
@@ -44,8 +44,8 @@ public class FunctionsExampleResponseDTO {
     @Getter
     @NoArgsConstructor
     @AllArgsConstructor
-    public static class ExampleImageDTO {
-        Long id;
+    public static class ExampleImgDTO {
+        Long imgId;
         String url;
     }
 

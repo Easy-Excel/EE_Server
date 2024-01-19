@@ -3,7 +3,7 @@ package umc.easyexcel.converter;
 import umc.easyexcel.domain.mapping.FunctionsExample;
 import umc.easyexcel.web.dto.FunctionsExampleResponseDTO;
 import umc.easyexcel.web.dto.FunctionsExampleResponseDTO.ExampleExplanationDTO;
-import umc.easyexcel.web.dto.FunctionsExampleResponseDTO.ExampleImageDTO;
+import umc.easyexcel.web.dto.FunctionsExampleResponseDTO.ExampleImgDTO;
 import umc.easyexcel.web.dto.FunctionsExampleResponseDTO.ExampleTipDTO;
 
 import java.util.List;
@@ -19,17 +19,17 @@ public class FunctionsExampleConverter {
                 .map(tip -> new ExampleTipDTO(tip.getId(), tip.getContent()))
                 .collect(Collectors.toList());
 
-        List<ExampleImageDTO> images = functionsExample.getExampleImgList().stream()
-                .map(image -> new ExampleImageDTO(image.getId(), image.getUrl()))
+        List<ExampleImgDTO> images = functionsExample.getExampleImgList().stream()
+                .map(image -> new ExampleImgDTO(image.getId(), image.getUrl()))
                 .collect(Collectors.toList());
 
         return FunctionsExampleResponseDTO.FunctionsExampleDTO.builder()
                 .id(functionsExample.getId())
                 .question(functionsExample.getQuestion())
                 .answer(functionsExample.getAnswer())
-                .explanationDTOList(explanations)
+                .exampleExplanationDTOList(explanations)
                 .exampleTipDTOList(tips)
-                .exampleImageDTOList(images)
+                .exampleImgDTOList(images)
                 .build();
     }
 
