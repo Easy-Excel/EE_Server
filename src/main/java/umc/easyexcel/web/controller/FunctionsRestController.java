@@ -23,15 +23,27 @@ public class FunctionsRestController {
     private final FunctionsQueryService functionsQueryService;
 
     @GetMapping("/list")
-    @Operation(summary = "문자별 함수 조회 API", description = "Query String으로 알파벳 2개를 주세요. 대소문자 상관 X, Ex: A,H >> A~H")
+    @Operation(summary = "문자별 함수 조회 API", description = "Query String으로 알파벳 2개를 주세요. 대소문자 상관없습니다. " +
+            "Ex: A,H >> A~H")
     @ApiResponses({
-            @io.swagger.v3.oas.annotations.responses.ApiResponse(responseCode = "COMMON200",description = "OK, 성공")
+            @io.swagger.v3.oas.annotations.responses.ApiResponse(responseCode = "COMMON200",description = "OK, 성공"),
     })
-    public ApiResponse<FunctionsResponseDTO.FunctionsListDTO> getFunctionsList(@RequestParam(name = "firstSorting") String firstSorting,
+    public ApiResponse<FunctionsResponseDTO.FunctionsSortingListDTO> getFunctionsSortingList(@RequestParam(name = "firstSorting") String firstSorting,
                                                                                @RequestParam(name = "lastSorting") String lastSorting){
 
-        List<Functions> functionsList = functionsQueryService.getFunctionsList(firstSorting,lastSorting);
-        return ApiResponse.onSuccess(FunctionsConverter.functionsListDTO(functionsList,firstSorting,lastSorting));
+        List<Functions> functionsSortingList = functionsQueryService.getFunctionsSortingList(firstSorting,lastSorting);
+        return ApiResponse.onSuccess(FunctionsConverter.functionsListDTO(functionsSortingList,firstSorting,lastSorting));
     }
 
+    @GetMapping("/search")
+    @Operation(summary = "함수 검색 API", description = "Query String으로 keyword를 주세요. 대소문자 상관없습니다. " +
+            "Ex: CO >> COUNT, COLUMN 등 CO가 포함된 검색 결과 조회")
+    @ApiResponses({
+            @io.swagger.v3.oas.annotations.responses.ApiResponse(responseCode = "COMMON200",description = "OK, 성공"),
+    })
+    public ApiResponse<FunctionsResponseDTO.FunctionsSearchListDTO> getFunctionsSearchList(@RequestParam(name = "keyword") String keyword){
+
+        List<Functions> functionsSearchList = functionsQueryService.getFunctionsSearchList(keyword);
+        return ApiResponse.onSuccess(FunctionsConverter.functionsSerachListDTO(functionsSearchList,keyword));
+    }
 }

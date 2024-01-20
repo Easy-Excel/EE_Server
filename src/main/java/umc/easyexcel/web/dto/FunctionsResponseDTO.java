@@ -22,10 +22,20 @@ public class FunctionsResponseDTO {
     @Getter
     @NoArgsConstructor
     @AllArgsConstructor
-    public static class FunctionsListDTO{
-        List<FunctionsDTO> functionsList;
+    public static class FunctionsSortingListDTO{
+        List<FunctionsDTO> functionsSortingList;
         Integer listSize;
         String sortingType;
+    }
+
+    @Builder
+    @Getter
+    @NoArgsConstructor
+    @AllArgsConstructor
+    public static class FunctionsSearchListDTO{
+        List<FunctionsDTO> functionsSearchList;
+        Integer listSize;
+        String searchKeyword;
     }
 
 }
