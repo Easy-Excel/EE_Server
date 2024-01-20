@@ -18,10 +18,13 @@ public class ShortcutKey extends BaseEntity {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    @Column(nullable = false, columnDefinition = "VARCHAR(20)")
     private String explanation;
 
+    @Column(nullable = false, columnDefinition = "VARCHAR(20)")
     private String detailExplanation;
 
+    @Column(nullable = false, columnDefinition = "VARCHAR(20)")
     private String category;
 
     //양방향 매핑

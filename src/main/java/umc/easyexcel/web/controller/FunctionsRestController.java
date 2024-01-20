@@ -23,7 +23,7 @@ public class FunctionsRestController {
     private final FunctionsQueryService functionsQueryService;
 
     @GetMapping("/list")
-    @Operation(summary = "문자별 함수 조회 API", description = "Query String으로 알파벳 2개를 주세요.(대소문자 상관 X) Ex: A,H >> (A~H)")
+    @Operation(summary = "문자별 함수 조회 API", description = "Query String으로 알파벳 2개를 주세요. 대소문자 상관 X, Ex: A,H >> A~H")
     @ApiResponses({
             @io.swagger.v3.oas.annotations.responses.ApiResponse(responseCode = "COMMON200",description = "OK, 성공")
     })

@@ -1,9 +1,6 @@
 package umc.easyexcel.domain;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 import lombok.*;
 
 @Entity
@@ -17,8 +14,10 @@ public class Value {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    @Column(nullable = false, columnDefinition = "VARCHAR(30)")
     private String eng;
 
+    @Column(nullable = false, columnDefinition = "VARCHAR(30)")
     private String kor;
 
 }
