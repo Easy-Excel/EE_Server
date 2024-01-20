@@ -37,5 +37,15 @@ public class ShortcutKeyResponseDto {
         Integer listSize;
         String categoryType;
     }
+
+    @Builder
+    @Getter
+    @NoArgsConstructor
+    @AllArgsConstructor
+    public static class ShortcutKeySearchDTO{
+        List<ShortcutKeyDTO> searchResults;
+        Integer resultSize;
+        String searchKeyword;
+    }
 }
 

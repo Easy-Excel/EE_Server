@@ -20,4 +20,10 @@ public class ShortcutKeyQueryServiceImpl implements ShortcutKeyQueryService {
     public List<ShortcutKey> getShortcutKeysByCategory(ShortcutKeyCategory category) {
         return shortcutKeyRepository.findByCategory(category);
     }
+
+    @Override
+    public List<ShortcutKey> searchShortcutKeys(String keyword) {
+        return shortcutKeyRepository.findByExplanationContainingOrDetailExplanationContaining(keyword, keyword);
+    }
+
 }
