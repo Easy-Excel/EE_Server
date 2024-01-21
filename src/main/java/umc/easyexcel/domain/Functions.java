@@ -38,4 +38,6 @@ public class Functions extends BaseEntity {
 
     @OneToMany(mappedBy = "functions", cascade = CascadeType.ALL)
     private List<FunctionsCaution> functionsCautionList = new ArrayList<>();
+
 }
+
