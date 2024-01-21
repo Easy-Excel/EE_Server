@@ -18,5 +18,6 @@ public class FeatureFunctions {
     @JoinColumn(name = "frequent_feature_id")
     private FrequentFeature frequentFeature;
 
+    @Column(nullable = false, columnDefinition = "VARCHAR(50)")
     private String functions;
 }

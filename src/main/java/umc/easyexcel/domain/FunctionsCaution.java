@@ -1,28 +1,23 @@
-package umc.easyexcel.domain.mapping;
+package umc.easyexcel.domain;
 
 import jakarta.persistence.*;
 import lombok.*;
-import umc.easyexcel.domain.Functions;
-import umc.easyexcel.domain.Value;
 
 @Entity
 @Getter
 @Builder
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 @AllArgsConstructor
-public class FunctionsValue {
+public class FunctionsCaution {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long Id;
+    private Long id;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "functions_id")
     private Functions functions;
 
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "value_id")
-    private Value value;
-
-    private Integer orders;
+    @Column(nullable = false, columnDefinition = "VARCHAR(255)")
+    private String caution;
 }

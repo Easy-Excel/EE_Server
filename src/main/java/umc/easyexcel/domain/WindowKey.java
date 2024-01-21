@@ -18,5 +18,6 @@ public class WindowKey {
     @JoinColumn(name = "shortcut_key_id")
     private ShortcutKey shortcutKey;
 
+    @Column(nullable = false, columnDefinition = "VARCHAR(30)")
     private String content;
 }
