@@ -23,7 +23,7 @@ public class ShortcutKeyQueryServiceImpl implements ShortcutKeyQueryService {
 
     @Override
     public List<ShortcutKey> searchShortcutKeys(String keyword) {
-        return shortcutKeyRepository.findByExplanationContainingOrDetailExplanationContaining(keyword, keyword);
+        return shortcutKeyRepository.findByExplanationContainingIgnoreCaseOrDetailExplanationContainingIgnoreCase(keyword, keyword);
     }
 
 }

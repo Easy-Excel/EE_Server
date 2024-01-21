@@ -10,6 +10,6 @@ public interface ShortcutKeyRepository extends JpaRepository<ShortcutKey, Long> 
 
     List<ShortcutKey> findByCategory(ShortcutKeyCategory category);
 
-    List<ShortcutKey> findByExplanationContainingOrDetailExplanationContaining(String explanation, String detailExplanation);
+    List<ShortcutKey> findByExplanationContainingIgnoreCaseOrDetailExplanationContainingIgnoreCase(String explanation, String detailExplanation);
 
 }
