@@ -9,4 +9,7 @@ import java.util.*;
 public interface ShortcutKeyRepository extends JpaRepository<ShortcutKey, Long> {
 
     List<ShortcutKey> findByCategory(ShortcutKeyCategory category);
+
+    List<ShortcutKey> findByExplanationContainingIgnoreCaseOrDetailExplanationContainingIgnoreCase(String explanation, String detailExplanation);
+
 }

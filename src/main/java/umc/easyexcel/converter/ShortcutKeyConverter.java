@@ -43,4 +43,16 @@ public class ShortcutKeyConverter {
                 .categoryType(category)
                 .build();
     }
+
+    public static ShortcutKeyResponseDto.ShortcutKeySearchDTO shortcutKeySearchDTO(List<ShortcutKey> shortcutKeyList, String keyword){
+
+        List<ShortcutKeyResponseDto.ShortcutKeyDTO> functionsSerachDTOList = shortcutKeyList.stream()
+                .map(ShortcutKeyConverter::shortcutKeyDTO).collect(Collectors.toList());
+
+        return ShortcutKeyResponseDto.ShortcutKeySearchDTO.builder()
+                .searchResults(functionsSerachDTOList)
+                .resultSize(functionsSerachDTOList.size())
+                .searchKeyword(keyword)
+                .build();
+    }
 }
