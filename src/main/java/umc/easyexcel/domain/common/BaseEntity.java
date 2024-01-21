@@ -19,5 +19,4 @@ public abstract class BaseEntity {
     @LastModifiedDate
     @Column(nullable = false, columnDefinition = "TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP")
     protected LocalDateTime updatedAt;
-
 }

@@ -3,6 +3,7 @@ package umc.easyexcel.domain;
 import jakarta.persistence.*;
 import lombok.*;
 import umc.easyexcel.domain.common.BaseEntity;
+import umc.easyexcel.domain.enums.ShortcutKeyCategory;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -24,8 +25,8 @@ public class ShortcutKey extends BaseEntity {
     @Column(nullable = false, columnDefinition = "VARCHAR(20)")
     private String detailExplanation;
 
-    @Column(nullable = false, columnDefinition = "VARCHAR(20)")
-    private String category;
+    @Enumerated(EnumType.STRING)
+    private ShortcutKeyCategory category;
 
     //양방향 매핑
     @OneToMany(mappedBy = "shortcutKey", cascade = CascadeType.ALL)
