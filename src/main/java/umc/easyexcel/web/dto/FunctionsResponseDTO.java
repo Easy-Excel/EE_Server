@@ -37,5 +37,4 @@ public class FunctionsResponseDTO {
         Integer listSize;
         String searchKeyword;
     }
-
 }
