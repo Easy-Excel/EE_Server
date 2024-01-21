@@ -16,10 +16,18 @@ public class FunctionsQueryServiceImpl implements FunctionsQueryService{
     private final FunctionsRepository functionsRepository;
 
     @Override
-    public List<Functions> getFunctionsList(String firstSorting, String lastSorting) {
+    public List<Functions> getFunctionsSortingList(String firstSorting, String lastSorting) {
 
         List<Functions> functionsList = functionsRepository.findNameBySorting(firstSorting,lastSorting);
 
         return functionsList;
+    }
+
+    @Override
+    public List<Functions> getFunctionsSearchList(String keyword) {
+
+        List<Functions> functionsSearchList = functionsRepository.findByNameContainingOrderByNameAsc(keyword);
+
+        return functionsSearchList;
     }
 }
