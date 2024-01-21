@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.RestController;
 import umc.easyexcel.apiPayload.ApiResponse;
 import umc.easyexcel.converter.CategoryConverter;
 import umc.easyexcel.domain.Functions;
+import umc.easyexcel.domain.enums.FunctionCategory;
 import umc.easyexcel.service.CategoryService.CategoryService;
 import umc.easyexcel.web.dto.CategoryResponseDTO;
 
@@ -20,8 +21,8 @@ public class CategoryRestController {
 
     private final CategoryService categoryService;
     @GetMapping("/category")
-    public ApiResponse<CategoryResponseDTO.InquiryListDTO> getFunctionsList(@RequestParam(name = "type", defaultValue = "날짜/시간") String category) {
+    public ApiResponse<CategoryResponseDTO.InquiryListDTO> getFunctionsList(@RequestParam(name = "type", defaultValue = "DATE_TIME") FunctionCategory category) {
         List<Functions> functionsByCategoryList = categoryService.getFunctionsByCategoryList(category);
-        return ApiResponse.onSuccess(CategoryConverter.inquiryListDTO(functionsByCategoryList, category));
+        return ApiResponse.onSuccess(CategoryConverter.inquiryListDTO(functionsByCategoryList, category.name()));
     }
 }
