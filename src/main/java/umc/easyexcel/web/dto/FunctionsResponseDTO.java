@@ -13,6 +13,18 @@ public class FunctionsResponseDTO {
     @Getter
     @NoArgsConstructor
     @AllArgsConstructor
+    public static class GetFunctionsDTO{
+        Long id;
+        String name;
+        String explanation;
+        List<String> caution;
+        List<ValueDTO.getValueDTO> engAndKorList;
+    }
+
+    @Builder
+    @Getter
+    @NoArgsConstructor
+    @AllArgsConstructor
     public static class FunctionsDTO{
         Long functionId;
         String name;
@@ -37,17 +49,4 @@ public class FunctionsResponseDTO {
         Integer listSize;
         String searchKeyword;
     }
-
-    @Builder
-    @Getter
-    @NoArgsConstructor
-    @AllArgsConstructor
-    public static class GetFunctionsDTO{
-        Long id;
-        String name;
-        String explanation;
-        List<String> caution;
-        List<ValueDTO.getValueDTO> engAndKorList;
-    }
-
 }

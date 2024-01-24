@@ -1,17 +1,19 @@
 package umc.easyexcel.web.controller;
 
-import io.swagger.v3.oas.annotations.Operation;
-import io.swagger.v3.oas.annotations.responses.ApiResponses;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import umc.easyexcel.apiPayload.ApiResponse;
+import umc.easyexcel.service.FunctionsService.FunctionsService;
+import umc.easyexcel.web.dto.FunctionsResponseDTO;
+import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.responses.ApiResponses;
+import org.springframework.web.bind.annotation.RequestParam;
 import umc.easyexcel.converter.FunctionsConverter;
 import umc.easyexcel.domain.Functions;
 import umc.easyexcel.service.FunctionsService.FunctionsQueryService;
-import umc.easyexcel.web.dto.FunctionsResponseDTO;
 
 import java.util.List;
 
@@ -20,6 +22,13 @@ import java.util.List;
 @RequestMapping("/functions")
 public class FunctionsRestController {
 
+    private final FunctionsService functionsService;
+
+    @GetMapping("/{function_id}")
+    public ApiResponse<FunctionsResponseDTO.GetFunctionsDTO> findById(@PathVariable("function_id") Long functionId) {
+        FunctionsResponseDTO.GetFunctionsDTO responseDTO = functionsService.getFunctionsByFunctionId(functionId);
+        return ApiResponse.onSuccess(responseDTO);
+    }
     private final FunctionsQueryService functionsQueryService;
 
     @GetMapping("/list")
