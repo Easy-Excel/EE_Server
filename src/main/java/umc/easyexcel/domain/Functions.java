@@ -3,6 +3,7 @@ package umc.easyexcel.domain;
 import jakarta.persistence.*;
 import lombok.*;
 import umc.easyexcel.domain.common.BaseEntity;
+import umc.easyexcel.domain.enums.FunctionCategory;
 import umc.easyexcel.domain.mapping.FunctionsExample;
 import umc.easyexcel.domain.mapping.FunctionsValue;
 
@@ -26,8 +27,8 @@ public class Functions extends BaseEntity {
     @Column(nullable = false, columnDefinition = "VARCHAR(255)")
     private String explanation;
 
-    @Column(nullable = false, columnDefinition = "VARCHAR(30)")
-    private String category;
+    @Enumerated(EnumType.STRING)
+    private FunctionCategory category;
 
     //양방향 매핑
     @OneToMany(mappedBy = "functions", cascade = CascadeType.ALL)
@@ -38,4 +39,6 @@ public class Functions extends BaseEntity {
 
     @OneToMany(mappedBy = "functions", cascade = CascadeType.ALL)
     private List<FunctionsCaution> functionsCautionList = new ArrayList<>();
+
 }
+

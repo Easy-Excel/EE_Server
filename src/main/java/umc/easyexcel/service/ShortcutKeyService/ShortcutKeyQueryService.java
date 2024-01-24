@@ -7,4 +7,5 @@ import java.util.List;
 
 public interface ShortcutKeyQueryService {
     List<ShortcutKey> getShortcutKeysByCategory(ShortcutKeyCategory category);
+    List<ShortcutKey> searchShortcutKeys(String keyword);
 }

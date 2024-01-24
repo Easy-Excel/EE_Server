@@ -1,6 +1,7 @@
 package umc.easyexcel.converter;
 
 import umc.easyexcel.domain.Functions;
+import umc.easyexcel.domain.enums.FunctionCategory;
 import umc.easyexcel.web.dto.CategoryResponseDTO;
 
 import java.util.List;

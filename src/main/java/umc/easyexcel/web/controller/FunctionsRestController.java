@@ -8,7 +8,6 @@ import org.springframework.web.bind.annotation.RestController;
 import umc.easyexcel.apiPayload.ApiResponse;
 import umc.easyexcel.service.FunctionsService.FunctionsService;
 import umc.easyexcel.web.dto.FunctionsResponseDTO;
-
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.responses.ApiResponses;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -30,7 +29,6 @@ public class FunctionsRestController {
         FunctionsResponseDTO.GetFunctionsDTO responseDTO = functionsService.getFunctionsByFunctionId(functionId);
         return ApiResponse.onSuccess(responseDTO);
     }
-
     private final FunctionsQueryService functionsQueryService;
 
     @GetMapping("/list")

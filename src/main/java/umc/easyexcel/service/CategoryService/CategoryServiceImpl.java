@@ -4,6 +4,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import umc.easyexcel.domain.Functions;
+import umc.easyexcel.domain.enums.FunctionCategory;
 import umc.easyexcel.repository.CategoryRepository;
 
 import java.util.Comparator;
@@ -18,8 +19,8 @@ public class CategoryServiceImpl implements CategoryService{
     private final CategoryRepository categoryRepository;
 
     @Override
-    public List<Functions> getFunctionsByCategoryList(String category) {
-        List<Functions> functionsByCategoryList = categoryRepository.findNameByCategory(category);
+    public List<Functions> getFunctionsByCategoryList(FunctionCategory category) {
+        List<Functions> functionsByCategoryList = categoryRepository.findByCategory(category);
 
         // 알파벳 순으로 정렬
         List<Functions> sortedFunctions = functionsByCategoryList.stream()
