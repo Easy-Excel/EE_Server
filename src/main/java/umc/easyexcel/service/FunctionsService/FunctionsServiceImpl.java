@@ -25,8 +25,6 @@ public class FunctionsServiceImpl implements FunctionsService {
         Functions functions = functionsRepository.findById(functionId)
                 .orElseThrow(() -> new FunctionsHandler(ErrorStatus.FUNCTION_NOT_FOUND));
 
-
-
         return FunctionsConverter.getFunctionsResultDTO(functions, valueRepository);
     }
 }
