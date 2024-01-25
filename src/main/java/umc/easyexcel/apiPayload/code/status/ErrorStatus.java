@@ -20,7 +20,14 @@ public enum ErrorStatus implements BaseErrorCode {
     TEMP_EXCEPTION(HttpStatus.BAD_REQUEST, "TEMP4001", "이거는 테스트"),
 
     // Functions
-    FUNCTION_NOT_FOUND(HttpStatus.BAD_REQUEST, "FUNCTION4001", "존재하지 않는 함수입니다.");
+    FUNCTION_NOT_FOUND(HttpStatus.BAD_REQUEST, "FUNCTION4001", "존재하지 않는 함수입니다."),
+
+    // ShortcutKey
+    SHORTCUTKEY_NOT_FOUND(HttpStatus.BAD_REQUEST, "SHORTCUTKEY400", "해당하는 단축키를 찾을 수 없습니다."),
+    INVALID_PARAMETER(HttpStatus.BAD_REQUEST, "INVALID_PARAMETER400", "잘못된 요청 파라미터입니다."),
+    INVALID_SHORTCUTKEY_CATEGORY(HttpStatus.BAD_REQUEST, "INVALID_SHORTCUTKEY_CATEGORY400", "잘못된 단축키 카테고리입니다."),
+    EMPTY_SEARCH(HttpStatus.OK, "EMPTY_SEARCH", "검색 결과가 없습니다."),
+    ;
 
     private final HttpStatus httpStatus;
     private final String code;
