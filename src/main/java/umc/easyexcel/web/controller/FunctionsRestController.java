@@ -6,10 +6,14 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import umc.easyexcel.apiPayload.ApiResponse;
+import umc.easyexcel.converter.CategoryConverter;
 import umc.easyexcel.converter.FunctionsExampleConverter;
+import umc.easyexcel.domain.enums.FunctionCategory;
 import umc.easyexcel.domain.mapping.FunctionsExample;
+import umc.easyexcel.service.CategoryService.CategoryService;
 import umc.easyexcel.service.FunctionsExampleService.FunctionsExampleService;
 import umc.easyexcel.service.FunctionsService.FunctionsService;
+import umc.easyexcel.web.dto.CategoryResponseDTO;
 import umc.easyexcel.web.dto.FunctionsExampleResponseDTO;
 import umc.easyexcel.web.dto.FunctionsResponseDTO;
 import io.swagger.v3.oas.annotations.Operation;
@@ -27,6 +31,7 @@ import java.util.List;
 public class FunctionsRestController {
 
     private final FunctionsService functionsService;
+    private final CategoryService categoryService;
     private final FunctionsExampleService functionsExampleService;
 
     @GetMapping("/{function_id}")
@@ -59,6 +64,13 @@ public class FunctionsRestController {
 
         List<Functions> functionsSearchList = functionsQueryService.getFunctionsSearchList(keyword);
         return ApiResponse.onSuccess(FunctionsConverter.functionsSerachListDTO(functionsSearchList,keyword));
+    }
+
+    @GetMapping("/category")
+    @Operation(summary = "범주별 함수 리스트 조회 API", description = "범주별 함수 리스트를 조회합니다")
+    public ApiResponse<CategoryResponseDTO.InquiryListDTO> getFunctionsList(@RequestParam(name = "type", defaultValue = "DATE_TIME") FunctionCategory category) {
+        List<Functions> functionsByCategoryList = categoryService.getFunctionsByCategoryList(category);
+        return ApiResponse.onSuccess(CategoryConverter.inquiryListDTO(functionsByCategoryList, category.name()));
     }
 
     @GetMapping("/{function_id}/examples")
