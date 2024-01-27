@@ -16,7 +16,7 @@ import java.util.stream.*;
 @RestController
 @RequiredArgsConstructor
 @RequestMapping("/etc")
-public class FrequentFeatureController {
+public class FrequentFeatureRestController {
 
     private final FrequentFeatureQueryService frequentFeatureQueryService;
 
