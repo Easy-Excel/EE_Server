@@ -28,7 +28,7 @@ public class FunctionsExample {
     @Column(nullable = false, columnDefinition = "VARCHAR(30)")
     private String title;
 
-    @Column(nullable = false, columnDefinition = "VARCHAR(40)")
+    @Column(nullable = false, columnDefinition = "VARCHAR(80)")
     private String question;
 
     //양방향 매핑
