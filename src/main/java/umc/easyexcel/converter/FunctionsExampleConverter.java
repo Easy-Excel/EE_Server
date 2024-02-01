@@ -25,8 +25,8 @@ public class FunctionsExampleConverter {
 
         return FunctionsExampleResponseDTO.FunctionsExampleDTO.builder()
                 .id(functionsExample.getId())
+                .title(functionsExample.getTitle())
                 .question(functionsExample.getQuestion())
-                .answer(functionsExample.getAnswer())
                 .exampleExplanationDTOList(explanations)
                 .exampleTipDTOList(tips)
                 .exampleImgDTOList(images)

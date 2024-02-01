@@ -10,5 +10,6 @@ public enum FunctionCategory {
     STATISTICS,
     SEARCH_REFERENCE,
     DATABASE,
-    TEXT
+    TEXT,
+    OTHER
 }
