@@ -26,10 +26,10 @@ public class FunctionsExample {
     private Functions functions;
 
     @Column(nullable = false, columnDefinition = "VARCHAR(30)")
-    private String question;
+    private String title;
 
-    @Column(nullable = false, columnDefinition = "VARCHAR(30)")
-    private String answer;
+    @Column(nullable = false, columnDefinition = "VARCHAR(80)")
+    private String question;
 
     //양방향 매핑
     @OneToMany(mappedBy = "functionsExample", cascade = CascadeType.ALL)

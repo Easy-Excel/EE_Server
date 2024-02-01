@@ -15,8 +15,8 @@ public class FunctionsExampleResponseDTO {
     @AllArgsConstructor
     public static class FunctionsExampleDTO {
         Long id;
+        String title;
         String question;
-        String answer;
         List<ExampleExplanationDTO> exampleExplanationDTOList;
         List<ExampleTipDTO> exampleTipDTOList;
         List<ExampleImgDTO> exampleImgDTOList;
