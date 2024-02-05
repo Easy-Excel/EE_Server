@@ -2,23 +2,22 @@ package umc.easyexcel.domain;
 
 import jakarta.persistence.*;
 import lombok.*;
-import umc.easyexcel.domain.mapping.FunctionsExample;
 
 @Entity
 @Getter
 @Builder
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 @AllArgsConstructor
-public class ExampleImg {
+public class SimilarWords {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "functions_example_id")
-    private FunctionsExample functionsExample;
+    @JoinColumn(name = "words_id")
+    private Words words;
 
-    @Column(nullable = false, columnDefinition = "TEXT")
-    private String url;
+    @Column(nullable = false, columnDefinition = "VARCHAR(50)")
+    private String content;
 }

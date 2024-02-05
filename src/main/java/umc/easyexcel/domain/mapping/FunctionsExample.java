@@ -1,7 +1,11 @@
-package umc.easyexcel.domain;
+package umc.easyexcel.domain.mapping;
 
 import jakarta.persistence.*;
 import lombok.*;
+import umc.easyexcel.domain.ExampleExplanation;
+import umc.easyexcel.domain.ExampleImg;
+import umc.easyexcel.domain.ExampleTip;
+import umc.easyexcel.domain.Functions;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -21,9 +25,11 @@ public class FunctionsExample {
     @JoinColumn(name = "function_id")
     private Functions functions;
 
-    private String question;
+    @Column(nullable = false, columnDefinition = "VARCHAR(30)")
+    private String title;
 
-    private String answer;
+    @Column(nullable = false, columnDefinition = "VARCHAR(80)")
+    private String question;
 
     //양방향 매핑
     @OneToMany(mappedBy = "functionsExample", cascade = CascadeType.ALL)

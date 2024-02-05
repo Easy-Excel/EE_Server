@@ -20,8 +20,7 @@ public class FunctionsValue {
     @JoinColumn(name = "functions_id")
     private Functions functions;
 
-    // 단방향 일대일 매핑
-    @OneToOne(fetch = FetchType.LAZY)
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "value_id")
     private Value value;
 

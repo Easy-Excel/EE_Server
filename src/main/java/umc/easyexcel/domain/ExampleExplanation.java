@@ -2,14 +2,14 @@ package umc.easyexcel.domain;
 
 import jakarta.persistence.*;
 import lombok.*;
-import umc.easyexcel.domain.common.BaseEntity;
+import umc.easyexcel.domain.mapping.FunctionsExample;
 
 @Entity
 @Getter
 @Builder
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 @AllArgsConstructor
-public class ExampleExplanation extends BaseEntity {
+public class ExampleExplanation {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -19,5 +19,6 @@ public class ExampleExplanation extends BaseEntity {
     @JoinColumn(name = "functions_example_id")
     private FunctionsExample functionsExample;
 
+    @Column(nullable = false, columnDefinition = "VARCHAR(255)")
     private String explanation;
 }
