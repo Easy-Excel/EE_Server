@@ -17,3 +17,6 @@ spring:
         hbm2ddl:
           auto: update
         default_batch_fetch_size: 1000
+chat:
+  secretKey: ${CHAT_SECRET_KEY}
+  apiUrl: ${CHAT_API_URL}
