@@ -24,16 +24,24 @@ public class FunctionsConverter {
 
         List<ValueDTO.getValueDTO> engAndKorList = functionsValues.stream()
                 .flatMap(functionsValue -> {
-                    // functionsValue에서 order 값을 가져와서 Stream을 생성
                     int order = functionsValue.getOrders();
 
-                    Stream<ValueDTO.getValueDTO> getValueDTOStream = valueRepository.findById(functionsValue.getId()).stream()
+                    List<ValueDTO.getValueDTO> valueDTOList = valueRepository.findById(functionsValue.getValue().getId()).stream()
                             .map(value -> ValueDTO.getValueDTO.builder()
                                     .order(order)
                                     .kor(value.getKor())
                                     .eng(value.getEng())
-                                    .build());
-                    return getValueDTOStream;
+                                    .build())
+                            .collect(Collectors.toList());
+
+                    if (functionsValue.getOptional() != null && functionsValue.getOptional()) {
+                        valueDTOList.forEach(dto -> {
+                            dto.setEng("[" + dto.getEng() + "]");
+                            dto.setKor("[" + dto.getKor() + "]");
+                        });
+                    }
+
+                    return valueDTOList.stream();
                 })
                 .collect(Collectors.toList());
 
