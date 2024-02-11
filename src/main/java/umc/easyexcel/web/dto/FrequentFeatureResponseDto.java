@@ -27,7 +27,7 @@ public class FrequentFeatureResponseDto {
         private String name;
         private String explanation;
         private List<String> featureCharacteristicList;
-        private List<String> featureFunctionsList;
+        private List<FunctionsResponseDTO.FunctionsDTO> featureFunctionsList;
     }
 
     @Builder
