@@ -23,7 +23,13 @@ public class FrequentFeatureConverter {
                         .map(FeatureCharacteristic::getContent)
                         .collect(Collectors.toList()))
                 .featureFunctionsList(frequentFeature.getFeatureFunctionsList().stream()
-                        .map(FeatureFunctions::getFunctions)
+                        .map(featureFunctions -> {
+                            Functions functions = featureFunctions.getFunctions();
+                            return FunctionsResponseDTO.FunctionsDTO.builder()
+                                    .functionId(functions.getId())
+                                    .name(functions.getName())
+                                    .build();
+                        })
                         .collect(Collectors.toList()))
                 .build();
     }
