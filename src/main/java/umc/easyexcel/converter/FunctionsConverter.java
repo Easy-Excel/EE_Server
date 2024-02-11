@@ -27,7 +27,7 @@ public class FunctionsConverter {
                     // functionsValue에서 order 값을 가져와서 Stream을 생성
                     int order = functionsValue.getOrders();
 
-                    Stream<ValueDTO.getValueDTO> getValueDTOStream = valueRepository.findById(functionsValue.getId()).stream()
+                    Stream<ValueDTO.getValueDTO> getValueDTOStream = valueRepository.findById(functionsValue.getValue().getId()).stream()
                             .map(value -> ValueDTO.getValueDTO.builder()
                                     .order(order)
                                     .kor(value.getKor())
