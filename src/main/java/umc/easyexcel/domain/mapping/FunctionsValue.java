@@ -25,4 +25,6 @@ public class FunctionsValue {
     private Value value;
 
     private Integer orders;
+
+    private Boolean optional;
 }
