@@ -37,6 +37,7 @@
    │  │           └─ dto                   
    │  └─ resources
    │     └─ application.yml
+   │     └─ email-template.txt
    └─ test
       └─ java
          └─ umc
