@@ -19,10 +19,10 @@ public class ShortcutKey extends BaseEntity {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(nullable = false, columnDefinition = "VARCHAR(20)")
+    @Column(nullable = false, columnDefinition = "TEXT")
     private String explanation;
 
-    @Column(nullable = false, columnDefinition = "VARCHAR(20)")
+    @Column(nullable = false, columnDefinition = "TEXT")
     private String detailExplanation;
 
     @Enumerated(EnumType.STRING)
