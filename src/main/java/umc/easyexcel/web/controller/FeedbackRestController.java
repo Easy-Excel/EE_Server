@@ -1,17 +1,15 @@
 package umc.easyexcel.web.controller;
 
-import jakarta.validation.Valid;
-import lombok.RequiredArgsConstructor;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
-import umc.easyexcel.apiPayload.ApiResponse;
-import umc.easyexcel.converter.FeedbackConverter;
-import umc.easyexcel.domain.Feedback;
-import umc.easyexcel.service.FeedbackService.FeedbackService;
-import umc.easyexcel.web.dto.FeedbackRequestDTO;
-import umc.easyexcel.web.dto.FeedbackResponseDTO;
+import jakarta.mail.*;
+import jakarta.validation.*;
+import lombok.*;
+import org.springframework.web.bind.annotation.*;
+import umc.easyexcel.apiPayload.*;
+import umc.easyexcel.converter.*;
+import umc.easyexcel.domain.*;
+import umc.easyexcel.service.FeedbackService.*;
+import umc.easyexcel.service.MailService.*;
+import umc.easyexcel.web.dto.*;
 
 @RestController
 @RequiredArgsConstructor
@@ -19,10 +17,12 @@ import umc.easyexcel.web.dto.FeedbackResponseDTO;
 public class FeedbackRestController {
 
     private final FeedbackService feedbackService;
+    private final MailService mailService;
 
     @PostMapping("/feedback")
-    public ApiResponse<FeedbackResponseDTO.SendResultDTO> send(@RequestBody @Valid FeedbackRequestDTO.SendDTO request){
+    public ApiResponse<FeedbackResponseDTO.SendResultDTO> send(@RequestBody @Valid FeedbackRequestDTO.SendDTO request) throws MessagingException {
         Feedback feedback = feedbackService.sendFeedback(request);
+        mailService.sendFeedbackNotification(feedback);
         return ApiResponse.onSuccess(FeedbackConverter.toSendResultDTO(feedback));
     }
 }
