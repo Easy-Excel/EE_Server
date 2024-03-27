@@ -2,6 +2,7 @@ package umc.easyexcel.domain;
 
 import jakarta.persistence.*;
 import lombok.*;
+import umc.easyexcel.domain.mapping.FunctionsExample;
 
 @Entity
 @Getter
@@ -18,6 +19,7 @@ public class ExampleTip {
     @JoinColumn(name = "functions_example_id")
     private FunctionsExample functionsExample;
 
+    @Column(nullable = false, columnDefinition = "VARCHAR(255)")
     private String content;
 
 }

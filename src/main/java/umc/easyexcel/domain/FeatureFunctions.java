@@ -18,5 +18,7 @@ public class FeatureFunctions {
     @JoinColumn(name = "frequent_feature_id")
     private FrequentFeature frequentFeature;
 
-    private String functions;
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "functions_id")
+    private Functions functions;
 }

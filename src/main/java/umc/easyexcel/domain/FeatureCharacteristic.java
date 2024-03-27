@@ -18,5 +18,6 @@ public class FeatureCharacteristic {
     @JoinColumn(name = "frequent_feature_id")
     private FrequentFeature frequentFeature;
 
+    @Column(nullable = false, columnDefinition = "VARCHAR(255)")
     private String content;
 }

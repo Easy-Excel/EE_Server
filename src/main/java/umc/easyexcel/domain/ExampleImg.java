@@ -2,6 +2,7 @@ package umc.easyexcel.domain;
 
 import jakarta.persistence.*;
 import lombok.*;
+import umc.easyexcel.domain.mapping.FunctionsExample;
 
 @Entity
 @Getter
@@ -18,6 +19,6 @@ public class ExampleImg {
     @JoinColumn(name = "functions_example_id")
     private FunctionsExample functionsExample;
 
+    @Column(nullable = false, columnDefinition = "TEXT")
     private String url;
-
 }

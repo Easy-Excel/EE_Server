@@ -11,10 +11,12 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
 import org.springframework.web.context.request.ServletWebRequest;
 import org.springframework.web.context.request.WebRequest;
+import org.springframework.web.method.annotation.*;
 import org.springframework.web.servlet.mvc.method.annotation.ResponseEntityExceptionHandler;
 import umc.easyexcel.apiPayload.ApiResponse;
 import umc.easyexcel.apiPayload.code.ErrorReasonDTO;
 import umc.easyexcel.apiPayload.code.status.ErrorStatus;
+import umc.easyexcel.domain.enums.*;
 
 import java.util.Map;
 
@@ -98,4 +100,15 @@ public class ExceptionAdvice extends ResponseEntityExceptionHandler {
                 request
         );
     }
+
+    @ExceptionHandler(value = MethodArgumentTypeMismatchException.class)
+    public ResponseEntity handleMethodArgumentTypeMismatchException(MethodArgumentTypeMismatchException e, HttpServletRequest request) {
+        if (e.getRequiredType().equals(ShortcutKeyCategory.class)) {
+            GeneralException generalException = new GeneralException(ErrorStatus.INVALID_SHORTCUTKEY_CATEGORY);
+            return onThrowException(generalException, request);
+        }
+        GeneralException generalException = new GeneralException(ErrorStatus.INVALID_PARAMETER);
+        return onThrowException(generalException, request);
+    }
+
 }
